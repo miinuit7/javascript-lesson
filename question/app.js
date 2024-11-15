@@ -8,7 +8,7 @@ console.log('私のニックネームは' + nickname + 'です。年齢は' + ag
 // Q2 配列
 let languages = ['javaScript', 'PHP', 'Ruby', 'Python', 'Go']
 
-console.log('私の好きな言語は' + languages[0] + 'です。次は' + languages[3] + 'を勉強してみたいです。')
+console.log(`私の好きな言語は${languages[0]}です。次は${languages[3]}を勉強してみたいです。`)
 
 
 // Q3 オブジェクト
@@ -43,8 +43,8 @@ let playerList = [
 console.log(playerList[1].favorites[1])
 
 // Q5 四則演算
-let sumAge = playerList[0].age + playerList[1].age + playerList[2].age
-let aveAge = sumAge / 3
+let sumAge = playerList.reduce((total, player) => total + player.age, 0);
+let aveAge = sumAge / playerList.length
 
 console.log(aveAge)
 
@@ -97,14 +97,21 @@ calc.divide = (x, y) => {
 calc.divide(15, 3)
 
 // Q9 返り値
-function remainder(x, y) {
-  return x % y
-}
-x = 5
-y = 3
-const result = remainder(x, y)
-console.log(x + 'を' + y + 'で割った余りは' + result + 'です。')
+// function remainder(x, y) {
+//   return x % y
+// }
+// x = 5
+// y = 3
+// const result = remainder(x, y)
+// console.log(x + 'を' + y + 'で割った余りは' + result + 'です。')
 
+function remainder(firstNum, secondNum) {
+  return firstNum % secondNum
+}
+firstNum = 5
+secondNum = 3
+const result = remainder(firstNum, secondNum)
+console.log(firstNum + 'を' + secondNum + 'で割った余りは' + result + 'です。')
 
 // Q10
 
@@ -113,10 +120,8 @@ console.log(x + 'を' + y + 'で割った余りは' + result + 'です。')
 
 //応用問題
 // Q1 標準組み込みオブジェクト
-for (let i = 0; i <= 9; i++) {
   let random = Math.floor((Math.random() * 9))
   console.log(random)
-}
 
 // Q2 コールバック関数
 let setTime = function () {
