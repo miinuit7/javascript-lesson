@@ -148,7 +148,7 @@ console.log(numbers)
 let mixed = [4, '2', 5, '8', '9', 0, 1];
 
 for (i = 0; i < mixed.length; i++) {
-  if (isNaN(mixed[i])) {
+  if (typeof mixed[i] === 'string') {
     console.log('not number')
   } else if (mixed[i] % 2 === 0) {
     console.log('even')
